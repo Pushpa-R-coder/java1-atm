@@ -1,0 +1,127 @@
+package atm;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Atm {
+public static void Load(){
+Scanner sc=new Scanner(System.in);
+int n=sc.nextInt();
+int den[]=new int[n];
+int no[]=new int[n];
+
+for(int i=0;i<n;i++){
+den[i]=sc.nextInt();
+no[i]=sc.nextInt();
+
+}
+System.out.println("--------------------------------");
+System.out.println("Denomination   Number   Value");
+System.out.println("--------------------------------");
+for(int i=0;i<n;i++){
+int val[]=new int[n];
+val[i]=den[i]*no[i];
+
+System.out.printf("\n%d          ",den[i]);
+System.out.printf("%d            ",no[i]);
+System.out.printf("%d ",val[i]);
+System.out.printf("\n");
+}
+}
+public static void Maintain(){
+	Scanner sc1=new Scanner(System.in);
+	int s=sc1.nextInt();
+	int accno[]=new int[s];
+	String accholder[]=new String[s];
+	int pinno[]=new int[s];
+	float accbal[]=new float[s];
+
+	for(int i=0;i<s;i++){
+	    
+	accno[i]=sc1.nextInt();
+	accholder[i]=sc1.next();
+	pinno[i]=sc1.nextInt();
+	accbal[i]=sc1.nextFloat();
+
+	}
+	System.out.println("-------------------------------------------------------");
+	System.out.println("Acc No     Account Holder  Pin Number   Account Balance");
+	System.out.println("-------------------------------------------------------");
+	for(int i=0;i<s;i++){
+
+
+	System.out.printf("\n%d",accno[i]);
+	System.out.printf("           %s",accholder[i]);
+	System.out.printf("           %d",pinno[i]);
+	System.out.printf("           %.2f ",accbal[i]);
+	System.out.printf("\n");
+}
+}
+public static void Handle() {
+	
+	
+	
+	
+	while(true)  
+    {  
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Choose 1 for Check Balance");  
+        System.out.println("Choose 2 for Withdraw");  
+        System.out.println("Choose 3 Exit");     
+        System.out.print("Choose the operation you want to perform:");    
+        int choice = sc.nextInt();  
+        switch(choice)  
+        { 
+        case 1:  
+        	Scanner sc1=new Scanner(System.in);
+        	int s2=sc1.nextInt();
+        	float accbal[]=new float[s2];
+        	for(int i=0;i<s2;i++) {
+        		accbal[i]=sc1.nextFloat();
+        	System.out.printf("%.2f ",accbal[i]);
+        	}
+break;  
+        
+            case 2:  
+       
+    Scanner sc3=new Scanner(System.in);
+    int n2=sc3.nextInt();
+    float accbal1[]=new float[n2];
+    int withdraw[]=new int[n2];
+    for(int i=0;i<n2;i++) {
+    accbal1[i]= sc3.nextFloat();  
+    System.out.print("Enter money to be withdrawn:");
+    withdraw[i]= sc3.nextInt();     
+    if(accbal1[i] >= withdraw[i])  
+    {  
+
+        accbal1[i]=accbal1[i] - withdraw[i];  
+        System.out.println("Please collect your money");  
+    } 
+    else  
+    {  
+        System.out.println("Insufficient Balance");  
+    }  }
+    System.out.println("");  
+    break;  
+
+           
+
+            case 3:  
+  
+    System.exit(0);  
+        }  
+    }  	
+    }
+	
+
+
+
+
+
+
+public static void main(String[] args) throws IOException{
+Load();
+Maintain();
+Handle();
+}
+}
